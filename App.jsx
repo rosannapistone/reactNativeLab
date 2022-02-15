@@ -1,19 +1,33 @@
 import React from 'react';
-import { 
-  StyleSheet, 
-  Text, 
-  View } 
-from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+
 import ClickButton from './components/Button';
 import NameInput from './components/NameInput';
+import Greeting from './components/Greeting';
 
-export default function App() {
+export default function App() { 
   const [inputValue, setInputValue] = useState('');
-  console.log(inputValue);
+  const [name, setName] = useState('');
+  const [buttonVisible, isVisible] = useState(true);
+  
+  const printName = () => {
+    setName(inputValue); 
+    isVisible(false);
+  }  
+  
+  
   return (
     <View style={styles.container}>
-      <NameInput />
-      <ClickButton hej='min prop' />
+      <Greeting value={name}/>
+      {buttonVisible ? 
+      <>
+      <NameInput setInput={setInputValue} />
+      <ClickButton submit='OK!' onClick={printName}/>
+      </>
+      :
+      <Text>🐷</Text>
+      }
     </View>
   );
 }
@@ -21,8 +35,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'beige',
+    backgroundColor: 'lightgreen',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });

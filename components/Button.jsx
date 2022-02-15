@@ -1,9 +1,16 @@
-import { useState } from 'react';
-import { Text, Button } from 'react-native';
+import { Button } from 'react-native';
 
 export default function ClickButton(props) {
-    
+
+  
+
     return (
-        <Button title={props.hej}></Button>
+        <Button color="#f194ff" title={props.submit} onPress={() => props.onClick()} />            
     )
+    
 }
+
+
+
+
+
