@@ -1,18 +1,18 @@
 import { StyleSheet, Text } from 'react-native';
 
-export default function Greeting(props) {
+export default function Message(props) {
     
     return (
-        <Text style={styles.greeting}>
-            Hello{" "}{props.value}!
+        <Text style={styles.message}>
+            What's your name?
         </Text>
     )
 }
 
 const styles = StyleSheet.create({
-    greeting: {
-        marginBottom: 10,
-        color: 'red',
+    message: {
+        marginBottom: 20,
+        color: 'orange',
         fontSize: 20,
         fontWeight: 'bold',
     }

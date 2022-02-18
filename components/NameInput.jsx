@@ -13,11 +13,13 @@ export default function NameInput(props) {
 
 const styles = StyleSheet.create({
     input: {
-        backgroundColor: 'coral',
+        backgroundColor: 'lightcoral',
         borderRadius: 10,
-        marginBottom: 1,
+        marginBottom: 20,
         color: 'white',
-        width: 100,
-        padding: 10
+        width: 150,
+        height: 30,
+        padding: 5,
+        paddingLeft: 20
     }
 })

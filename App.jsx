@@ -5,6 +5,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import ClickButton from './components/Button';
 import NameInput from './components/NameInput';
 import Greeting from './components/Greeting';
+import Message from './components/Message';
 
 export default function App() { 
   const [inputValue, setInputValue] = useState('');
@@ -19,14 +20,17 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Greeting value={name}/>
       {buttonVisible ? 
       <>
+      <Message />
       <NameInput setInput={setInputValue} />
-      <ClickButton submit='OK!' onClick={printName}/>
+      <ClickButton submit='>' onClick={printName}/>
       </>
       :
-      <Text>🐷</Text>
+      <>
+      <Greeting value={name}/>
+      <Text style={styles.emoji}>🐷</Text>
+      </>
       }
     </View>
   );
@@ -38,5 +42,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgreen',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  emoji: {
+    fontSize: 60
   }
 });
